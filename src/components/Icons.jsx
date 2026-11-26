@@ -7,6 +7,7 @@ import {
   SiReact,
   SiFigma,
   SiMysql,
+  SiTensorflow,
 } from 'react-icons/si'
 import {
   FaJava,
@@ -45,6 +46,7 @@ const map = {
   react: SiReact,
   figma: SiFigma,
   db: SiMysql,
+  tf: SiTensorflow,
   brain: FaBrain,
   code: FaCode,
   web: FaGlobe,

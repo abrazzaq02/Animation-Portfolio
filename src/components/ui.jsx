@@ -57,6 +57,26 @@ export function SectionTitle({ eyebrow, title, subtitle }) {
         {eyebrow}
       </motion.span>
       <AnimatedText as="h2" text={title} className="section-title__text" />
+      <svg className="section-title__squiggle" viewBox="0 0 120 12" aria-hidden="true">
+        <motion.path
+          d="M2 7 Q 12 1 22 7 T 42 7 T 62 7 T 82 7 T 102 7 T 118 6"
+          fill="none"
+          stroke="url(#squiggle-grad)"
+          strokeWidth="3.5"
+          strokeLinecap="round"
+          initial={{ pathLength: 0 }}
+          whileInView={{ pathLength: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.4, ease: 'easeInOut' }}
+        />
+        <defs>
+          <linearGradient id="squiggle-grad" x1="0" x2="1">
+            <stop offset="0%" stopColor="#F8C8DC" />
+            <stop offset="50%" stopColor="#E07AA8" />
+            <stop offset="100%" stopColor="#B892E8" />
+          </linearGradient>
+        </defs>
+      </svg>
       {subtitle && (
         <motion.p
           className="section-title__sub"
