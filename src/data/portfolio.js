@@ -4,12 +4,14 @@
 // ─────────────────────────────────────────────────────────────
 
 export const profile = {
-  name: 'Your Name',
+  name: 'Your Name', // ← your best friend's name (used in the showreel, hero, footer)
   role: 'Computer Science Student',
-  subtitle: 'Aspiring Software Developer | Creative Thinker | Tech Enthusiast',
+  subtitle: 'Dreamer | Coder | Creative Thinker | Future Developer',
   email: 'your.email@example.com',
   location: 'Your City, Country',
   university: 'University / College Name',
+  // Optional real photo, e.g. '/photo.jpg' (put the file in /public). Leave '' to show only the illustrated character.
+  photo: '',
   socials: {
     github: 'https://github.com/',
     linkedin: 'https://www.linkedin.com/',
@@ -17,13 +19,29 @@ export const profile = {
   },
 }
 
+// The signature shown at the end of the showreel and in the outro: "Made with Love for … ♡"
+export const dedication = {
+  for: "[Best Friend's Name]",
+  from: 'Your Bestie',
+}
+
+// Contact form delivery.
+// Leave endpoint '' → the form opens the visitor's email app (works everywhere, no setup).
+// Or paste a form-backend URL to receive messages directly in your inbox, e.g.
+//   Formspree:  'https://formspree.io/f/xxxxxxx'   (free account at formspree.io)
+//   Web3Forms:  'https://api.web3forms.com/submit' + set accessKey below (web3forms.com)
+export const contactForm = {
+  endpoint: '',
+  accessKey: '',
+}
+
 export const navLinks = [
-  { id: 'home', label: 'Home' },
+  { id: 'showreel', label: 'Showreel' },
   { id: 'about', label: 'About' },
   { id: 'skills', label: 'Skills' },
   { id: 'projects', label: 'Projects' },
-  { id: 'education', label: 'Education' },
-  { id: 'achievements', label: 'Achievements' },
+  { id: 'education', label: 'Journey' },
+  { id: 'creative', label: 'Creative' },
   { id: 'contact', label: 'Contact' },
 ]
 
@@ -224,3 +242,17 @@ export const achievements = [
     icon: 'github',
   },
 ]
+
+// Content used by the 40-second showreel at the top of the site.
+export const showreel = {
+  aboutIntro: 'A Computer Science student who turns ideas into delightful, useful software.',
+  about: [
+    ['💻', 'Passionate about technology and how things work'],
+    ['⌨️', 'Loves programming — from Python to React'],
+    ['🎨', 'Creative thinker with an eye for design'],
+    ['🧩', 'Enjoys solving tricky problems step by step'],
+    ['🚀', 'Goal: grow into a full-stack & AI developer'],
+  ],
+  // ids from `projects` above (3 or 4 look best)
+  projects: ['portfolio', 'students', 'calculator', 'todo'],
+}

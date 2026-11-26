@@ -103,7 +103,7 @@ export default function About() {
 
   return (
     <section id="about" className="section about">
-      <SectionTitle eyebrow="👩🏻‍💻 About Me" title="Nice to meet you!" subtitle="A little story about the human behind the code." />
+      <SectionTitle eyebrow="👩🏻‍💻 About Me" title="A LITTLE ABOUT ME" subtitle="A little story about the human behind the code." />
 
       <div className="about__grid">
         <Reveal className="about__art">
@@ -119,6 +119,17 @@ export default function About() {
             >
               Hi, I'm {profile.name}! 💖
             </motion.div>
+            {profile.photo && (
+              <motion.img
+                className="about__photo"
+                src={profile.photo}
+                alt={profile.name}
+                initial={{ scale: 0, rotate: -12 }}
+                whileInView={{ scale: 1, rotate: -6 }}
+                viewport={{ once: true }}
+                transition={{ type: 'spring', stiffness: 220, damping: 14, delay: 0.3 }}
+              />
+            )}
             <span className="orbit orbit--1">{'</>'}</span>
             <span className="orbit orbit--2">☕</span>
             <span className="orbit orbit--3">💡</span>

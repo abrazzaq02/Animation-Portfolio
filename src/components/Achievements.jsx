@@ -31,7 +31,7 @@ function Card({ a, i }) {
 export default function Achievements() {
   return (
     <section id="achievements" className="section achievements">
-      <SectionTitle eyebrow="🏆 Achievements" title="Proud Moments" subtitle="Certificates, challenges and milestones along the way." />
+      <SectionTitle eyebrow="🏆 Achievements" title="PROUD MOMENTS" subtitle="Certificates, challenges and milestones along the way." />
       <div className="ach__grid">
         {achievements.map((a, i) => (
           <Card key={a.title} a={a} i={i} />

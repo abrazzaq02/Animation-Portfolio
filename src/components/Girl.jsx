@@ -4,21 +4,23 @@ import { memo, useId } from 'react'
  * Cute CS-student girl, drawn as layered SVG with gradients for a soft 3D look.
  *
  * pose:  'stand' | 'walk' | 'sit'   (sit = arms typing, legs hidden behind a desk)
- * mood:  'idle' | 'happy' | 'excited' | 'wave'
+ * mood:  'idle' | 'happy' | 'excited' | 'wave' | 'think' | 'celebrate'
+ * look:  'center' | 'left' | 'right' | 'up'   (where her eyes point)
+ * holding: null | 'laptop'
  *
  * All looping motion (blink, breathe, walk, wave, type) is CSS keyframes, so it runs on
  * the compositor and stays cheap even with several characters on screen.
  */
-function Girl({ pose = 'stand', mood = 'idle', className = '', style }) {
+function Girl({ pose = 'stand', mood = 'idle', look = 'center', holding = null, className = '', style }) {
   const uid = useId().replace(/:/g, '')
   const id = (n) => `${n}-${uid}`
   const waving = mood === 'wave' || mood === 'excited'
-  const smiling = mood !== 'idle'
+  const smiling = mood !== 'idle' && mood !== 'think'
 
   return (
     <svg
       viewBox="0 0 200 320"
-      className={`girl girl--${pose} ${waving ? 'is-waving' : ''} ${smiling ? 'is-happy' : ''} ${className}`}
+      className={`girl girl--${pose} mood--${mood} look--${look} ${holding ? 'is-holding' : ''} ${waving ? 'is-waving' : ''} ${smiling ? 'is-happy' : ''} ${className}`}
       style={style}
       role="img"
       aria-label="Animated girl character, a computer science student"
@@ -103,6 +105,16 @@ function Girl({ pose = 'stand', mood = 'idle', className = '', style }) {
           <circle cx="138" cy="222" r="9.5" fill={`url(#${id('skin')})`} />
         </g>
 
+        {holding === 'laptop' && (
+          <g className="girl__laptop">
+            <path d="M66 214 h68 l6 9 h-80z" fill="#F3C1D7" stroke="#E487B1" strokeWidth="2" strokeLinejoin="round" />
+            <rect x="70" y="174" width="60" height="42" rx="6" fill="#FFFFFF" stroke="#E487B1" strokeWidth="2.5" />
+            <path className="girl__laptop-heart" d="M100 203 c-7 -5 -11 -9 -11 -13 a5 5 0 0 1 11 -2 a5 5 0 0 1 11 2 c0 4 -4 8 -11 13z" fill="#F28CB1" />
+            <circle cx="60" cy="214" r="9" fill="#FFDCCD" />
+            <circle cx="140" cy="214" r="9" fill="#FFDCCD" />
+          </g>
+        )}
+
         {/* head */}
         <g className="girl__head">
           <rect x="92" y="128" width="16" height="18" rx="6" fill="#F5C3B2" />
@@ -159,6 +171,14 @@ function Girl({ pose = 'stand', mood = 'idle', className = '', style }) {
           )}
         </g>
       </g>
+      {mood === 'think' && (
+        <g className="girl__think">
+          <circle cx="150" cy="62" r="4" fill="#fff" stroke="#EFA6C8" strokeWidth="2" />
+          <circle cx="160" cy="46" r="6" fill="#fff" stroke="#EFA6C8" strokeWidth="2" />
+          <circle cx="178" cy="22" r="17" fill="#fff" stroke="#EFA6C8" strokeWidth="2.5" />
+          <text x="178" y="30" textAnchor="middle" fontFamily="Poppins, sans-serif" fontWeight="800" fontSize="22" fill="#D96C9D">?</text>
+        </g>
+      )}
     </svg>
   )
 }

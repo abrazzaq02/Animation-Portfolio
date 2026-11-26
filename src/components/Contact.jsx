@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
-import { profile } from '../data/portfolio.js'
+import { contactForm, profile } from '../data/portfolio.js'
 import Icon from './Icons.jsx'
 import { Button, Reveal, SectionTitle } from './ui.jsx'
 import { useMood } from '../context/MoodContext.jsx'
@@ -57,6 +57,13 @@ function Envelope({ state }) {
           fill="#E46FA0"
         />
       </svg>
+      <span className="envelope__hearts">
+        {Array.from({ length: 7 }).map((_, i) => (
+          <i key={i} style={{ '--i': i }}>
+            {i % 2 ? '♡' : '♥'}
+          </i>
+        ))}
+      </span>
     </motion.div>
   )
 }
@@ -83,7 +90,10 @@ export default function Contact() {
     return er
   }
 
-  const submit = (e) => {
+  const [delivery, setDelivery] = useState('mail') // mail | direct | error
+  const [sending, setSending] = useState(false)
+
+  const submit = async (e) => {
     e.preventDefault()
     const er = validate()
     setErrors(er)
@@ -91,9 +101,32 @@ export default function Contact() {
       react('happy', 900)
       return
     }
-    setState('sent')
     react('excited', 2500)
-    // No backend needed: hand the message to the visitor's email app.
+
+    // With a form backend configured (Formspree / Web3Forms), deliver straight to the inbox.
+    if (contactForm.endpoint) {
+      setSending(true)
+      try {
+        const res = await fetch(contactForm.endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({ ...form, ...(contactForm.accessKey ? { access_key: contactForm.accessKey } : {}) }),
+        })
+        if (!res.ok) throw new Error(`HTTP ${res.status}`)
+        setDelivery('direct')
+        setState('sent')
+      } catch {
+        setDelivery('error')
+        setState('sent')
+      } finally {
+        setSending(false)
+      }
+      return
+    }
+
+    // No backend configured: hand the message to the visitor's email app.
+    setDelivery('mail')
+    setState('sent')
     const body = `${form.message}\n\n— ${form.name} (${form.email})`
     const href = `mailto:${profile.email}?subject=${encodeURIComponent(form.subject)}&body=${encodeURIComponent(body)}`
     setTimeout(() => {
@@ -126,7 +159,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="section contact">
-      <SectionTitle eyebrow="💌 Contact" title="Let's Connect!" subtitle="Have an opportunity, a project idea, or just want to say hi? My inbox is always open." />
+      <SectionTitle eyebrow="💌 Contact" title="LET'S CONNECT!" subtitle="Have an opportunity, a project idea, or just want to say hi? My inbox is always open." />
 
       <div className="contact__grid">
         <Reveal className="contact__side">
@@ -137,7 +170,13 @@ export default function Contact() {
                 <motion.div className="contact__sent glass" initial={{ opacity: 0, scale: 0.7 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} transition={{ delay: 0.8 }}>
                   <span>💖</span>
                   <strong>Thank you!</strong>
-                  <p>Your email app should open with your message ready to send.</p>
+                  <p>
+                    {delivery === 'direct'
+                      ? 'Your message is on its way — I’ll reply soon!'
+                      : delivery === 'error'
+                        ? `Hmm, that didn’t go through. Please email me at ${profile.email}.`
+                        : 'Your email app should open with your message ready to send.'}
+                  </p>
                   <button className="link-btn" onClick={reset}>
                     Write another message
                   </button>
@@ -184,8 +223,8 @@ export default function Contact() {
             </div>
             {field('subject', 'Subject')}
             {field('message', 'Your Message', 'textarea')}
-            <Button type="submit">
-              <Icon name="send" /> Send Message
+            <Button type="submit" disabled={sending}>
+              <Icon name="send" /> {sending ? 'Sending…' : 'Send Message'}
             </Button>
           </form>
         </Reveal>

@@ -165,7 +165,7 @@ export default function Projects() {
 
   return (
     <section id="projects" className="section projects">
-      <SectionTitle eyebrow="🚀 Projects" title="Things I've Built" subtitle="From AI assistants to everyday apps — click Live Demo to play with them right here." />
+      <SectionTitle eyebrow="🚀 Projects" title="MY PROJECTS" subtitle="From AI assistants to everyday apps — click Live Demo to play with them right here." />
 
       <div className="filters" role="tablist" aria-label="Filter projects">
         {FILTERS.map((f) => {
