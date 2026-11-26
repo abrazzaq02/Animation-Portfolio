@@ -73,7 +73,7 @@ export function SectionTitle({ eyebrow, title, subtitle }) {
           <linearGradient id="squiggle-grad" x1="0" x2="1">
             <stop offset="0%" stopColor="#F8C8DC" />
             <stop offset="50%" stopColor="#E07AA8" />
-            <stop offset="100%" stopColor="#B892E8" />
+            <stop offset="100%" stopColor="#D96C9D" />
           </linearGradient>
         </defs>
       </svg>

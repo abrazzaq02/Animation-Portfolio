@@ -90,8 +90,8 @@ function DeskScene() {
     <motion.div
       className="desk"
       initial={{ opacity: 0, scale: 0.85, y: 40 }}
-      animate={{ opacity: 1, scale: 1, y: 0 }}
-      transition={{ delay: 1.8, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+      viewport={{ once: true, amount: 0.3 }} whileInView={{ opacity: 1, scale: 1, y: 0 }}
+      transition={{ delay: 0.2, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
     >
       <motion.div className="desk__halo" style={back} />
       <div className="desk__ring" aria-hidden="true">
@@ -198,32 +198,32 @@ export default function Hero() {
         <motion.span
           className="hero__badge glass"
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.7 }}
+          viewport={{ once: true, amount: 0.3 }} whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
         >
           <span className="dot" /> Available for internships
         </motion.span>
 
         <h1 className="hero__title">
-          <AnimatedText text="HELLO, I'M A" className="hero__title-1" delay={1.8} stagger={0.04} />
-          <AnimatedText text="COMPUTER SCIENCE" className="hero__title-2 gradient-text" delay={2.2} stagger={0.035} />
-          <AnimatedText text="STUDENT" className="hero__title-3" delay={2.75} stagger={0.05} />
+          <AnimatedText text="HELLO, I'M" className="hero__title-1" delay={0.2} stagger={0.04} />
+          <AnimatedText text={profile.name} className="hero__title-2 gradient-text" delay={0.55} stagger={0.05} />
+          <AnimatedText text="COMPUTER SCIENCE STUDENT" className="hero__title-3" delay={1.05} stagger={0.025} />
         </h1>
 
         <motion.p
           className="hero__name"
           initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 3.1 }}
+          viewport={{ once: true, amount: 0.3 }} whileInView={{ opacity: 1, x: 0 }}
+          transition={{ delay: 1.5 }}
         >
-          <span className="hero__wave">👋</span> I'm <strong>{profile.name}</strong>
+          <span className="hero__wave">👋</span> Welcome to my little <strong>digital world</strong>
         </motion.p>
 
         <motion.p
           className="hero__subtitle"
           initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 3.25 }}
+          viewport={{ once: true, amount: 0.3 }} whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.65 }}
         >
           {profile.subtitle.split('|').map((part, i, arr) => (
             <span key={i}>
@@ -238,10 +238,10 @@ export default function Hero() {
             <motion.span
               key={w}
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: [0, -8, 0] }}
+              viewport={{ once: true, amount: 0.3 }} whileInView={{ opacity: 1, y: [0, -8, 0] }}
               transition={{
-                opacity: { delay: 3.4 + i * 0.15 },
-                y: { delay: 3.4 + i * 0.15, duration: 2.4, repeat: Infinity, repeatDelay: 0.6 + i * 0.1, ease: 'easeInOut' },
+                opacity: { delay: 0.2 + i * 0.15 },
+                y: { delay: 0.2 + i * 0.15, duration: 2.4, repeat: Infinity, repeatDelay: 0.6 + i * 0.1, ease: 'easeInOut' },
               }}
             >
               {w}
@@ -252,8 +252,8 @@ export default function Hero() {
         <motion.div
           className="hero__cta"
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 3.6 }}
+          viewport={{ once: true, amount: 0.3 }} whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 2.0 }}
         >
           <Button href="#projects" onClick={scrollTo('projects')}>
             Explore My Work <span aria-hidden>→</span>
@@ -266,8 +266,8 @@ export default function Hero() {
         <motion.div
           className="hero__stack"
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 3.8 }}
+          viewport={{ once: true, amount: 0.3 }} whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 2.2 }}
         >
           <span className="hero__stack-label">My stack</span>
           <ul>

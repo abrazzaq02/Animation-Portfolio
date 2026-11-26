@@ -2,6 +2,9 @@ import { MotionConfig } from 'framer-motion'
 import { MoodProvider } from './context/MoodContext.jsx'
 import { FloatingBackground, Loader, ScrollProgress, SparkleTrail } from './components/Ambient.jsx'
 import Navbar from './components/Navbar.jsx'
+import Showreel from './components/Showreel.jsx'
+import Creative from './components/Creative.jsx'
+import Outro from './components/Outro.jsx'
 import Hero from './components/Hero.jsx'
 import WordBand from './components/WordBand.jsx'
 import About from './components/About.jsx'
@@ -22,6 +25,7 @@ export default function App() {
         <SparkleTrail />
         <Navbar />
         <main>
+          <Showreel />
           <Hero />
           <WordBand />
           <About />
@@ -29,7 +33,9 @@ export default function App() {
           <Projects />
           <Education />
           <Achievements />
+          <Creative />
           <Contact />
+          <Outro />
         </main>
         <Footer />
         <Companion />

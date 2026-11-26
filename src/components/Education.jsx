@@ -11,7 +11,14 @@ export default function Education() {
 
   return (
     <section id="education" className="section education">
-      <SectionTitle eyebrow="🎓 Education" title="My Academic Journey" subtitle={`${profile.role} at ${profile.university}`} />
+      <SectionTitle eyebrow="🎓 Education" title="MY LEARNING JOURNEY" subtitle={`${profile.role} at ${profile.university}`} />
+      <div className="edu-floats" aria-hidden="true">
+        {['📚', '🎓', '⭐', '📖', '✦', '🎓', '⭐', '📚'].map((e, i) => (
+          <span key={i} style={{ '--i': i }}>
+            {e}
+          </span>
+        ))}
+      </div>
 
       <div className="timeline" ref={ref}>
         <div className="timeline__line">

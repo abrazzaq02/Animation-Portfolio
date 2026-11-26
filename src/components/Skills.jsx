@@ -55,7 +55,7 @@ function SkillCard({ skill, i }) {
 export default function Skills() {
   return (
     <section id="skills" className="section skills">
-      <SectionTitle eyebrow="💻 Skills" title="My Tech Toolbox" subtitle="Languages, frameworks and superpowers I use to bring ideas to life." />
+      <SectionTitle eyebrow="💻 Skills" title="MY SKILLS" subtitle="Languages, frameworks and superpowers I use to bring ideas to life." />
       <div className="skills__grid">
         {skills.map((s, i) => (
           <SkillCard key={s.name} skill={s} i={i} />

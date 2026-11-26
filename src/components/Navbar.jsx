@@ -4,6 +4,8 @@ import { navLinks, profile } from '../data/portfolio.js'
 import { useMood } from '../context/MoodContext.jsx'
 
 const sectionMessages = {
+  showreel: 'Grab a snack — this is my 40-second showreel 🎬',
+  creative: 'Dream big, build bigger! 🦋',
   home: 'Hi! Welcome to my little corner of the internet ✨',
   about: "Here's a bit about me — nice to meet you! 💕",
   skills: 'These are the tools I love to code with 💻',
@@ -26,6 +28,7 @@ export default function Navbar() {
         entries.forEach((e) => {
           if (e.isIntersecting) {
             setActive(e.target.id)
+            document.body.dataset.section = e.target.id
             setMessage(sectionMessages[e.target.id] || '')
             react('wave', 1400)
           }
@@ -70,7 +73,7 @@ export default function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ delay: 1.6, type: 'spring', stiffness: 120, damping: 16 }}
     >
-      <a href="#home" className="nav__logo" onClick={(e) => go(e, 'home')}>
+      <a href="#showreel" className="nav__logo" onClick={(e) => go(e, 'showreel')}>
         <span className="nav__logo-badge">{initials}</span>
         <span className="nav__logo-text">
           {profile.name.split(' ')[0]}

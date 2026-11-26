@@ -12,7 +12,7 @@ function useIds() {
 }
 
 /* shared dreamy backdrop: gradient, soft bokeh, faint dot grid */
-function Backdrop({ id, from = '#FFE3EF', via = '#F8C8DC', to = '#E9C6F2' }) {
+function Backdrop({ id, from = '#FFE3EF', via = '#F8C8DC', to = '#F4B6D1' }) {
   return (
     <>
       <defs>
@@ -38,7 +38,7 @@ function Backdrop({ id, from = '#FFE3EF', via = '#F8C8DC', to = '#E9C6F2' }) {
         </linearGradient>
         <linearGradient id={id('violet')} x1="0" y1="0" x2="1" y2="1">
           <stop offset="0%" stopColor="#F4B6D6" />
-          <stop offset="100%" stopColor="#B892E8" />
+          <stop offset="100%" stopColor="#D96C9D" />
         </linearGradient>
       </defs>
       <rect width="400" height="260" fill={`url(#${id('bg')})`} />
@@ -66,7 +66,7 @@ function AIChat() {
   const links = [[0, 3], [1, 3], [1, 4], [2, 4], [0, 4], [5, 8], [6, 8], [6, 9], [7, 9], [5, 9]]
   return (
     <svg viewBox="0 0 400 260" preserveAspectRatio="xMidYMid slice" className="cover" role="img" aria-label="AI chat assistant illustration">
-      <Backdrop id={id} from="#FFE6F1" via="#F6C6E0" to="#D9C2F5" />
+      <Backdrop id={id} from="#FFE6F1" via="#F6C6E0" to="#F2B3CF" />
       {/* neural network */}
       <g opacity=".75">
         {links.map(([a, b], i) => (
@@ -85,9 +85,9 @@ function AIChat() {
       <circle cx="116" cy="52" r="13" fill={`url(#${id('violet')})`} />
       {/* tiny robot face */}
       <rect x="108" y="46" width="16" height="12" rx="4" fill="#fff" />
-      <circle className="cv-blink" cx="113" cy="52" r="1.8" fill="#7A5C9E" />
-      <circle className="cv-blink" cx="119" cy="52" r="1.8" fill="#7A5C9E" />
-      <text x="136" y="50" fontFamily="Fredoka, sans-serif" fontWeight="600" fontSize="11" fill="#29242A">Study Buddy AI</text>
+      <circle className="cv-blink" cx="113" cy="52" r="1.8" fill="#B8487D" />
+      <circle className="cv-blink" cx="119" cy="52" r="1.8" fill="#B8487D" />
+      <text x="136" y="50" fontFamily="Poppins, sans-serif" fontWeight="600" fontSize="11" fill="#382B35">Study Buddy AI</text>
       <circle cx="139" cy="61" r="3" fill="#6FD3A0" />
       <text x="146" y="64" fontFamily="Poppins, sans-serif" fontSize="7.5" fill="#8a7d8c">online · ready to help</text>
       {/* bubbles */}
@@ -110,12 +110,12 @@ function AIChat() {
       <path d="M283 203 l6 -3 -2 3 2 3z" fill="#fff" />
       {/* floating robot */}
       <g transform="translate(300 150)"><g className="cv-float cv-d1">
-        <line x1="22" y1="-2" x2="22" y2="-14" stroke="#B892E8" strokeWidth="3" strokeLinecap="round" />
+        <line x1="22" y1="-2" x2="22" y2="-14" stroke="#D96C9D" strokeWidth="3" strokeLinecap="round" />
         <circle className="cv-pulse" cx="22" cy="-16" r="4.5" fill="#F28CB1" />
-        <rect x="0" y="0" width="44" height="36" rx="12" fill="#fff" stroke="#E5CFF3" strokeWidth="2" />
+        <rect x="0" y="0" width="44" height="36" rx="12" fill="#fff" stroke="#F8C8DC" strokeWidth="2" />
         <rect x="6" y="7" width="32" height="18" rx="8" fill="#3E2F4F" />
-        <circle className="cv-blink" cx="15" cy="16" r="3.4" fill="#9FF0E0" />
-        <circle className="cv-blink" cx="29" cy="16" r="3.4" fill="#9FF0E0" />
+        <circle className="cv-blink" cx="15" cy="16" r="3.4" fill="#FFC2DD" />
+        <circle className="cv-blink" cx="29" cy="16" r="3.4" fill="#FFC2DD" />
         <path d="M17 29 q5 4 10 0" stroke="#E07AA8" strokeWidth="2" fill="none" strokeLinecap="round" />
       </g></g>
       <Sparkle x={70} y={40} s={1.2} />
@@ -130,7 +130,7 @@ function AIVision() {
   const id = useIds()
   return (
     <svg viewBox="0 0 400 260" preserveAspectRatio="xMidYMid slice" className="cover" role="img" aria-label="AI image classifier illustration">
-      <Backdrop id={id} from="#FFEAF3" via="#F9CFE2" to="#E2C8F4" />
+      <Backdrop id={id} from="#FFEAF3" via="#F9CFE2" to="#F4BCD5" />
       {/* photo card */}
       <g filter={`url(#${id('shadow')})`}>
         <rect x="34" y="34" width="208" height="192" rx="16" fill="#fff" />
@@ -147,7 +147,7 @@ function AIVision() {
       <g clipPath={`url(#${id('photo')})`}>
         <rect x="44" y="44" width="188" height="172" fill={`url(#${id('sky')})`} />
         <circle cx="200" cy="74" r="14" fill="#FFF6D8" />
-        <path d="M44 186 q60 -26 120 -6 q40 12 68 0 v36 h-188z" fill="#CFEBD8" />
+        <path d="M44 186 q60 -26 120 -6 q40 12 68 0 v36 h-188z" fill="#FBE1EC" />
         {/* cat */}
         <g transform="translate(70 104)">
           <ellipse cx="40" cy="78" rx="38" ry="26" fill="#F3C9A8" />
@@ -182,17 +182,17 @@ function AIVision() {
       <rect className="cv-dash" x="62" y="94" width="96" height="114" rx="8" fill="none" stroke="#E07AA8" strokeWidth="2.5" strokeDasharray="7 5" />
       <rect x="62" y="80" width="78" height="18" rx="6" fill="#E07AA8" />
       <text x="70" y="93" fontFamily="JetBrains Mono, monospace" fontSize="8.5" fontWeight="700" fill="#fff">cat · 98.4%</text>
-      <rect className="cv-dash cv-d1" x="170" y="126" width="42" height="74" rx="8" fill="none" stroke="#B892E8" strokeWidth="2.5" strokeDasharray="7 5" />
-      <rect x="166" y="112" width="58" height="16" rx="6" fill="#B892E8" />
+      <rect className="cv-dash cv-d1" x="170" y="126" width="42" height="74" rx="8" fill="none" stroke="#D96C9D" strokeWidth="2.5" strokeDasharray="7 5" />
+      <rect x="166" y="112" width="58" height="16" rx="6" fill="#D96C9D" />
       <text x="171" y="123.5" fontFamily="JetBrains Mono, monospace" fontSize="7.5" fontWeight="700" fill="#fff">flower 91%</text>
       {/* results panel */}
       <g filter={`url(#${id('shadow')})`}>
         <rect x="256" y="48" width="118" height="132" rx="14" fill="#fff" />
       </g>
-      <text x="268" y="68" fontFamily="Fredoka, sans-serif" fontWeight="600" fontSize="10" fill="#29242A">Predictions</text>
+      <text x="268" y="68" fontFamily="Poppins, sans-serif" fontWeight="600" fontSize="10" fill="#382B35">Predictions</text>
       {[
         ['🐱 cat', 0.98, '#E07AA8'],
-        ['🌸 flower', 0.91, '#B892E8'],
+        ['🌸 flower', 0.91, '#D96C9D'],
         ['🐶 dog', 0.12, '#EFA6C8'],
         ['🦊 fox', 0.06, '#F4C2D7'],
       ].map(([label, v, c], i) => (
@@ -280,7 +280,7 @@ function Students() {
   const bars = [40, 62, 50, 78, 66, 88, 72]
   return (
     <svg viewBox="0 0 400 260" preserveAspectRatio="xMidYMid slice" className="cover" role="img" aria-label="Student management dashboard">
-      <Backdrop id={id} from="#FFF0F6" via="#F9D3E3" to="#EBCBEA" />
+      <Backdrop id={id} from="#FFF0F6" via="#F9D3E3" to="#F6C4DA" />
       <g filter={`url(#${id('shadow')})`}>
         <rect x="30" y="26" width="340" height="208" rx="16" fill="#fff" />
       </g>
@@ -292,18 +292,18 @@ function Students() {
       {[0, 1, 2, 3].map((i) => (
         <rect key={i} x="46" y={78 + i * 24} width="24" height="14" rx="5" fill="#fff" opacity={i === 0 ? 0.95 : 0.45} />
       ))}
-      <text x="100" y="48" fontFamily="Fredoka, sans-serif" fontWeight="600" fontSize="12" fill="#29242A">Class Dashboard</text>
+      <text x="100" y="48" fontFamily="Poppins, sans-serif" fontWeight="600" fontSize="12" fill="#382B35">Class Dashboard</text>
       <text x="100" y="60" fontFamily="Poppins, sans-serif" fontSize="7" fill="#8a7d8c">Semester 5 · BS Computer Science</text>
       {/* stat cards */}
       {[
         ['Students', '128', '#FDE7F0'],
-        ['Avg grade', 'A-', '#F3E8FB'],
-        ['Attendance', '94%', '#FFF1E4'],
+        ['Avg grade', 'A-', '#FFF0F5'],
+        ['Attendance', '94%', '#FDE7F0'],
       ].map(([l, v, c], i) => (
         <g key={l} transform={`translate(${100 + i * 88} 70)`}>
           <rect width="80" height="40" rx="10" fill={c} />
           <text x="10" y="16" fontFamily="Poppins, sans-serif" fontSize="7" fill="#8a7d8c">{l}</text>
-          <text x="10" y="32" fontFamily="Fredoka, sans-serif" fontWeight="700" fontSize="14" fill="#C8588B">{v}</text>
+          <text x="10" y="32" fontFamily="Poppins, sans-serif" fontWeight="700" fontSize="14" fill="#C8588B">{v}</text>
         </g>
       ))}
       {/* bar chart */}
@@ -325,7 +325,7 @@ function Students() {
       {/* donut + table */}
       <circle cx="306" cy="150" r="24" fill="none" stroke="#FBE4EE" strokeWidth="10" />
       <circle className="cv-spin-slow" cx="306" cy="150" r="24" fill="none" stroke="#E07AA8" strokeWidth="10" strokeDasharray="110 151" strokeLinecap="round" transform="rotate(-90 306 150)" />
-      <text x="306" y="154" textAnchor="middle" fontFamily="Fredoka, sans-serif" fontWeight="700" fontSize="11" fill="#C8588B">73%</text>
+      <text x="306" y="154" textAnchor="middle" fontFamily="Poppins, sans-serif" fontWeight="700" fontSize="11" fill="#C8588B">73%</text>
       {['Aisha  A+', 'Bilal  B+', 'Sara   A'].map((t, i) => (
         <g key={t} className="cv-pop" style={{ animationDelay: `${i * 0.3}s` }}>
           <rect x="272" y={184 + i * 14} width="86" height="11" rx="4" fill={i % 2 ? '#FFF6FA' : '#FDE7F0'} />
@@ -343,7 +343,7 @@ function Calculator() {
   const keys = ['C', '±', '%', '÷', '7', '8', '9', '×', '4', '5', '6', '−', '1', '2', '3', '+']
   return (
     <svg viewBox="0 0 400 260" preserveAspectRatio="xMidYMid slice" className="cover" role="img" aria-label="Calculator app on a phone">
-      <Backdrop id={id} from="#FFEFF5" via="#F8C8DC" to="#F3D6EE" />
+      <Backdrop id={id} from="#FFEFF5" via="#F8C8DC" to="#F8CDE0" />
       {['π', '√', '∑', '×', '÷', '+', '=', '%'].map((s, i) => (
         <text
           key={s}
@@ -351,7 +351,7 @@ function Calculator() {
           style={{ animationDelay: `${-i * 0.7}s` }}
           x={[40, 340, 70, 320, 30, 360, 100, 300][i]}
           y={[60, 70, 200, 200, 130, 140, 110, 112][i]}
-          fontFamily="Fredoka, sans-serif"
+          fontFamily="Poppins, sans-serif"
           fontWeight="700"
           fontSize={[26, 22, 20, 26, 18, 18, 16, 16][i]}
           fill="#fff"
@@ -367,7 +367,7 @@ function Calculator() {
         <rect x="146" y="20" width="108" height="224" rx="17" fill="#FFF9FB" />
         <rect x="186" y="25" width="28" height="6" rx="3" fill="#3B2F3D" />
         <text x="244" y="58" textAnchor="end" fontFamily="JetBrains Mono, monospace" fontSize="8" fill="#a0919f">128 × 6 =</text>
-        <text x="244" y="80" textAnchor="end" fontFamily="Fredoka, sans-serif" fontWeight="700" fontSize="22" fill="#C8588B">768</text>
+        <text x="244" y="80" textAnchor="end" fontFamily="Poppins, sans-serif" fontWeight="700" fontSize="22" fill="#C8588B">768</text>
         {keys.map((k, i) => {
           const x = 154 + (i % 4) * 24
           const y = 92 + Math.floor(i / 4) * 30
@@ -400,27 +400,27 @@ function Todo() {
   const tasks = ['Finish DSA homework', 'Push code to GitHub', 'Design new UI', 'Drink water 💧']
   return (
     <svg viewBox="0 0 400 260" preserveAspectRatio="xMidYMid slice" className="cover" role="img" aria-label="To-do list app">
-      <Backdrop id={id} from="#FFF3F7" via="#FAD4E4" to="#F2CFE6" />
+      <Backdrop id={id} from="#FFF3F7" via="#FAD4E4" to="#F7C9DC" />
       {/* sticky notes */}
       <g transform="rotate(-10 60 70)"><g className="cv-float">
-        <rect x="28" y="40" width="64" height="60" rx="6" fill="#FFF3B8" />
-        <text x="38" y="62" fontFamily="Fredoka, sans-serif" fontSize="9" fill="#8a6d3b">exam fri!</text>
+        <rect x="28" y="40" width="64" height="60" rx="6" fill="#FFF0F5" />
+        <text x="38" y="62" fontFamily="Poppins, sans-serif" fontSize="9" fill="#B8487D">exam fri!</text>
         <text x="38" y="80" fontSize="14">📚</text>
       </g></g>
       <g transform="rotate(8 345 200)"><g className="cv-float cv-d2">
-        <rect x="314" y="170" width="62" height="58" rx="6" fill="#DFF3E7" />
-        <text x="324" y="192" fontFamily="Fredoka, sans-serif" fontSize="9" fill="#3a8f7b">you got</text>
-        <text x="324" y="206" fontFamily="Fredoka, sans-serif" fontSize="9" fill="#3a8f7b">this ✨</text>
+        <rect x="314" y="170" width="62" height="58" rx="6" fill="#FADADD" />
+        <text x="324" y="192" fontFamily="Poppins, sans-serif" fontSize="9" fill="#B8487D">you got</text>
+        <text x="324" y="206" fontFamily="Poppins, sans-serif" fontSize="9" fill="#B8487D">this ✨</text>
       </g></g>
       <g filter={`url(#${id('shadow')})`}>
         <rect x="104" y="26" width="200" height="210" rx="18" fill="#fff" />
       </g>
-      <text x="122" y="54" fontFamily="Fredoka, sans-serif" fontWeight="700" fontSize="14" fill="#29242A">My Tasks</text>
+      <text x="122" y="54" fontFamily="Poppins, sans-serif" fontWeight="700" fontSize="14" fill="#382B35">My Tasks</text>
       <text x="122" y="67" fontFamily="Poppins, sans-serif" fontSize="7.5" fill="#8a7d8c">Tuesday · 3 of 4 done</text>
       {/* progress ring */}
       <circle cx="276" cy="56" r="15" fill="none" stroke="#FBE4EE" strokeWidth="5" />
       <circle cx="276" cy="56" r="15" fill="none" stroke="#E07AA8" strokeWidth="5" strokeDasharray="71 95" strokeLinecap="round" transform="rotate(-90 276 56)" />
-      <text x="276" y="59" textAnchor="middle" fontFamily="Fredoka, sans-serif" fontSize="8" fontWeight="700" fill="#C8588B">75%</text>
+      <text x="276" y="59" textAnchor="middle" fontFamily="Poppins, sans-serif" fontSize="8" fontWeight="700" fill="#C8588B">75%</text>
       {tasks.map((t, i) => {
         const done = i < 3
         const y = 84 + i * 32
@@ -429,7 +429,7 @@ function Todo() {
             <rect x="118" y={y} width="172" height="24" rx="9" fill={done ? '#FFF4F8' : '#FDE7F0'} />
             <rect x="126" y={y + 6} width="12" height="12" rx="4" fill={done ? `url(#${id('pink')})` : '#fff'} stroke="#EFA6C8" strokeWidth="1.5" />
             {done && <path className="cv-check" style={{ animationDelay: `${i * 0.4}s` }} d={`M129 ${y + 12} l3 3 l5 -6`} fill="none" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />}
-            <text x="146" y={y + 15.5} fontFamily="Poppins, sans-serif" fontSize="8" fill={done ? '#a0919f' : '#29242A'} textDecoration={done ? 'line-through' : ''}>
+            <text x="146" y={y + 15.5} fontFamily="Poppins, sans-serif" fontSize="8" fill={done ? '#a0919f' : '#382B35'} textDecoration={done ? 'line-through' : ''}>
               {t}
             </text>
           </g>
@@ -438,7 +438,7 @@ function Todo() {
       <rect x="118" y="214" width="172" height="12" rx="6" fill="#FFF4F8" />
       <rect className="cv-grow-x" x="118" y="214" width="129" height="12" rx="6" fill={`url(#${id('pink')})`} />
       {/* confetti */}
-      {['#E07AA8', '#B892E8', '#FFD66E', '#7CC59A', '#EFA6C8'].map((c, i) => (
+      {['#E07AA8', '#D96C9D', '#FFD66E', '#7CC59A', '#EFA6C8'].map((c, i) => (
         <rect key={c} className="cv-confetti" style={{ animationDelay: `${i * 0.5}s` }} x={300 + i * 12} y="30" width="5" height="8" rx="1.5" fill={c} />
       ))}
       <Sparkle x={86} y={210} s={1.1} />
