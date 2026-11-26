@@ -4,6 +4,16 @@ import { profile } from '../data/portfolio.js'
 import { useMood } from '../context/MoodContext.jsx'
 import Girl from './Girl.jsx'
 import { AnimatedText, Button } from './ui.jsx'
+import Icon from './Icons.jsx'
+
+const STACK = [
+  ['react', 'React'],
+  ['js', 'JavaScript'],
+  ['python', 'Python'],
+  ['tf', 'TensorFlow'],
+  ['java', 'Java'],
+  ['figma', 'Figma'],
+]
 
 const CODE = [
   { t: 'const ', c: 'k' },
@@ -84,6 +94,11 @@ function DeskScene() {
       transition={{ delay: 1.8, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
     >
       <motion.div className="desk__halo" style={back} />
+      <div className="desk__ring" aria-hidden="true">
+        <span>✦</span>
+        <span>♥</span>
+        <span>{'</>'}</span>
+      </div>
 
       {/* floating code editor */}
       <motion.div className="code-win glass" style={back}>
@@ -174,6 +189,11 @@ export default function Hero() {
 
   return (
     <section id="home" className="hero" ref={ref}>
+      <div className="hero__aurora" aria-hidden="true">
+        <i />
+        <i />
+        <i />
+      </div>
       <motion.div className="hero__text" style={{ y: textY, opacity: fade }}>
         <motion.span
           className="hero__badge glass"
@@ -241,6 +261,28 @@ export default function Hero() {
           <Button href="#contact" variant="ghost" onClick={scrollTo('contact')} mood="wave">
             Contact Me <span aria-hidden>💌</span>
           </Button>
+        </motion.div>
+
+        <motion.div
+          className="hero__stack"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 3.8 }}
+        >
+          <span className="hero__stack-label">My stack</span>
+          <ul>
+            {STACK.map(([icon, label], i) => (
+              <motion.li
+                key={label}
+                title={label}
+                whileHover={{ y: -6, rotate: i % 2 ? 8 : -8, scale: 1.12 }}
+                style={{ animationDelay: `${i * 0.35}s` }}
+              >
+                <Icon name={icon} />
+                <span className="hero__tip">{label}</span>
+              </motion.li>
+            ))}
+          </ul>
         </motion.div>
       </motion.div>
 

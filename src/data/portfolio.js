@@ -31,13 +31,14 @@ export const about = {
   intro:
     "Hi there! I'm a Computer Science student who loves turning ideas into delightful, useful software. I enjoy the moment a messy problem finally clicks — and I care just as much about how something feels to use as how it works under the hood.",
   more:
-    "When I'm not debugging, you'll find me sketching UI ideas, exploring new frameworks, joining hackathons or helping classmates untangle their code. I'm currently looking for internships and collaborations where I can learn, build and grow.",
+    "When I'm not debugging, you'll find me sketching UI ideas, experimenting with AI models, exploring new frameworks, joining hackathons or helping classmates untangle their code. I'm currently looking for internships and collaborations where I can learn, build and grow.",
   interests: [
     { label: 'Programming', icon: 'code' },
     { label: 'Web Development', icon: 'web' },
     { label: 'UI/UX Design', icon: 'design' },
     { label: 'Technology', icon: 'tech' },
     { label: 'Problem Solving', icon: 'puzzle' },
+    { label: 'AI & Machine Learning', icon: 'brain' },
   ],
   stats: [
     { value: 15, suffix: '+', label: 'Projects Built' },
@@ -60,36 +61,69 @@ export const skills = [
   { name: 'Problem Solving', level: 90, icon: 'brain', color: '#EFA6C8' },
 ]
 
+// category: 'ai' | 'web' | 'app'  ·  cover: which illustrated cover to draw (see components/Covers.jsx)
+// demo: null → opens the built-in live demo · '#section' → scrolls there · 'https://…' → opens your hosted site
 export const projects = [
+  {
+    id: 'ai-chat',
+    title: 'Study Buddy — AI Chat Assistant',
+    description:
+      'An AI study companion that explains CS concepts in simple words, quizzes you before exams and remembers what you are learning. Built on a large language model with a friendly chat UI.',
+    tech: ['Python', 'FastAPI', 'LLM API', 'React'],
+    category: 'ai',
+    featured: true,
+    year: '2025',
+    demo: null,
+    github: 'https://github.com/',
+    cover: 'ai-chat',
+  },
+  {
+    id: 'ai-vision',
+    title: 'AI Image Classifier',
+    description:
+      'A convolutional neural network that recognises objects in photos with confidence scores, trained with TensorFlow and served through a simple web app.',
+    tech: ['Python', 'TensorFlow', 'CNN', 'Flask'],
+    category: 'ai',
+    year: '2025',
+    demo: null,
+    github: 'https://github.com/',
+    cover: 'ai-vision',
+  },
   {
     id: 'portfolio',
     title: 'Personal Portfolio',
     description:
-      'This dreamy, fully animated portfolio — built with React and Framer Motion, featuring an animated character, parallax and scroll-triggered motion.',
+      'This dreamy, fully animated portfolio — React and Framer Motion with an animated character, parallax and scroll-triggered motion.',
     tech: ['React', 'Framer Motion', 'CSS'],
+    category: 'web',
+    year: '2025',
     demo: '#home',
     github: 'https://github.com/',
-    art: 'portfolio',
+    cover: 'portfolio',
   },
   {
     id: 'students',
     title: 'Student Management System',
     description:
-      'Add, search and manage student records with grades and attendance. Clean dashboard UI with sortable tables and quick stats.',
+      'Add, search and manage student records with grades and attendance in a clean dashboard with quick stats and charts.',
     tech: ['Java', 'MySQL', 'JavaFX'],
+    category: 'app',
+    year: '2024',
     demo: null,
     github: 'https://github.com/',
-    art: 'students',
+    cover: 'students',
   },
   {
     id: 'calculator',
     title: 'Calculator App',
     description:
-      'A soft, tactile calculator with keyboard support, chained operations and a pastel button design that feels great to click.',
+      'A soft, tactile calculator with keyboard support, chained operations and pastel buttons that feel great to click.',
     tech: ['HTML', 'CSS', 'JavaScript'],
+    category: 'web',
+    year: '2023',
     demo: null,
     github: 'https://github.com/',
-    art: 'calculator',
+    cover: 'calculator',
   },
   {
     id: 'todo',
@@ -97,9 +131,11 @@ export const projects = [
     description:
       'Stay organised with a cheerful task list — add, complete and delete tasks, with progress tracking and saved state.',
     tech: ['React', 'LocalStorage', 'CSS'],
+    category: 'app',
+    year: '2024',
     demo: null,
     github: 'https://github.com/',
-    art: 'todo',
+    cover: 'todo',
   },
 ]
 
