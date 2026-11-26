@@ -10,9 +10,11 @@ on:
 # Nothing by default; each job asks only for what it needs.
 permissions: {}
 
+# One queue per branch, so a manual run on another branch can never cancel a main deploy;
+# main deploys queue instead of cancelling each other mid-publish.
 concurrency:
-  group: pages
-  cancel-in-progress: true
+  group: pages-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
   build:
